@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres d'Emploi</title>
+
+    <!-- Lien vers la police Poppins depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Définition des variables pour le thème */
+        :root {
+            --bg-dark-color: #121212; /* Fond sombre pour l'ensemble de la page */
+            --bg-light-color: #1a1a1a; /* Fond légèrement plus clair */
+            --text-light-color: #fff; /* Texte clair */
+            --primary-color: #00a99d; /* Vert clair */
+            --primary-dark-color: #008b7d; /* Vert foncé */
+            --shadow-color: rgba(0, 0, 0, 0.3); /* Ombre légère pour les cartes */
+        }
+
+        /* Généralités */
+        body {
+            font-family: 'Poppins', sans-serif; /* Application de la police Poppins */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark-color); /* Fond sombre */
+            color: var(--text-light-color); /* Texte clair */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-light-color); /* Fond sombre pour l'en-tête */
+            color: var(--text-light-color); /* Texte clair dans l'en-tête */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center; /* Centrer les éléments du menu */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-right: 30px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-light-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .menu a:hover {
+            color: var(--primary-color); /* Vert clair au survol */
+        }
+
+        /* Section principale */
+        h2, h3 {
+            text-align: center;
+            color: var(--primary-color); /* Vert clair pour les titres */
+            font-size: 2.5em; /* Taille de texte améliorée */
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #b3b3b3; /* Gris clair pour le texte */
+            margin-bottom: 30px;
+        }
+
+        .job-listings {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 1s ease-in-out 0.3s;
+        }
+
+        .job-card {
+            background-color: var(--bg-light-color); /* Fond sombre pour les cartes */
+            padding: 20px;
+            width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .job-card h4 {
+            margin-top: 0;
+            color: var(--primary-color); /* Vert clair pour les titres des jobs */
+        }
+
+        .job-card p {
+            font-size: 0.9rem;
+            color: #bbb; /* Texte gris plus clair */
+        }
+
+        .job-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .button {
+            background-color: var(--primary-color); /* Vert clair pour les boutons */
+            color: var(--text-light-color);
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background-color: var(--primary-dark-color); /* Vert foncé au survol */
+        }
+
+        form {
+            background-color: var(--bg-light-color);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            animation: fadeIn 1s ease-in-out 0.7s;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--text-light-color);
+        }
+
+        form input, form select {
+            width: 95%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #333;
+            color: var(--text-light-color);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus, form select:focus {
+            border-color: var(--primary-color);
+        }
+
+        form button {
+            background-color: var(--primary-color);
+            color: var(--text-light-color);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+        }
+
+        form button:hover {
+            background-color: var(--primary-dark-color);
+        }
+
+        /* Animation fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 30px auto;
+            width: 70%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            padding: 12px;
+            font-size: 1.1em;
+            width: 70%;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-bar button {
+            padding: 15px 20px;
+            background-color: var(--primary-color);
+            color: var(--text-light-color);
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        .search-bar button:hover {
+            background-color: var(--primary-dark-color);
+        }
+
+        /* Responsivité */
+        @media (max-width: 768px) {
+            .job-listings {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .job-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .search-bar input {
+                width: 80%;
+            }
+
+            .search-bar button {
+                width: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="cv.html">Télécharger un CV</a></li>
+                <li><a href="emplois.html">Offres d'Emploi</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="emplois">
+        <h2>Offres d'Emploi</h2>
+        <p>Découvrez les dernières offres d'emploi disponibles.</p>
+
+        <div class="job-listings">
+            <div class="job-card">
+                <h4>Développeur Web</h4>
+                <p><strong>Entreprise</strong>: XYZ Technologies</p>
+                <p><strong>Lieu</strong>: Paris</p>
+                <p><strong>Description</strong>: Nous recherchons un développeur web avec une expérience en JavaScript et React pour rejoindre notre équipe.</p>
+                <button class="button">Postuler</button>
+            </div>
+
+            <div class="job-card">
+                <h4>Ouvrier en Construction</h4>
+                <p><strong>Entreprise</strong>: ABC Construction</p>
+                <p><strong>Lieu</strong>: Lyon</p>
+                <p><strong>Description</strong>: Ouvrier pour un chantier de construction, avec ou sans expérience. Formation disponible sur place.</p>
+                <button class="button">Postuler</button>
+            </div>
+
+            <div class="job-card">
+                <h4>Assistant Administratif</h4>
+                <p><strong>Entreprise</strong>: DEF Services</p>
+                <p><strong>Lieu</strong>: Marseille</p>
+                <p><strong>Description</strong>: Nous recherchons un assistant administratif pour organiser les tâches quotidiennes au sein de notre bureau.</p>
+                <button class="button">Postuler</button>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher un emploi..." id="search-input" aria-label="Barre de recherche">
+            <button class="button">Rechercher</button>
+        </div>
+
+        <h3>Publier une Offre d'Emploi</h3>
+        <form action="#" method="POST">
+            <label for="job-title">Titre du poste</label>
+            <input type="text" id="job-title" name="job-title" placeholder="Titre du poste" required>
+
+            <label for="company">Entreprise</label>
+            <input type="text" id="company" name="company" placeholder="Nom de l'entreprise" required>
+
+            <label for="location-job">Lieu de travail</label>
+            <input type="text" id="location-job" name="location-job" placeholder="Ville ou région" required>
+
+            <label for="contract-type">Type de contrat</label>
+            <select id="contract-type" name="contract-type" required>
+                <option value="cd">CDI</option>
+                <option value="cdd">CDD</option>
+                <option value="stage">Stage</option>
+                <option value="freel">Freelance</option>
+            </select>
+
+            <button type="submit">Publier l'offre</button>
+        </form>
+    </section>
+</body>
+</html>

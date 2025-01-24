@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Définition des variables pour le thème sombre */
+        :root {
+            --bg-dark-color: #121212; /* Fond sombre pour l'ensemble de la page */
+            --bg-light-color: #1a1a1a; /* Fond légèrement plus clair */
+            --text-light-color: #fff; /* Texte clair */
+            --primary-color: #00a99d; /* Vert clair */
+            --primary-dark-color: #008b7d; /* Vert foncé */
+            --shadow-color: rgba(0, 0, 0, 0.3); /* Ombre légère pour les cartes */
+        }
+
+        /* Généralités */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light-color); /* Fond sombre */
+            color: var(--text-light-color); /* Texte clair */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--text-light-color);
+        }
+
+        h1 span {
+            color: var(--primary-color); /* Couleur du texte pour "Nous" */
+        }
+
+        .form-container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: var(--bg-dark-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            text-align: center;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: var(--text-light-color);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-color); /* Bordure verte au focus */
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--primary-color); /* Vert clair */
+            color: var(--text-light-color);
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--primary-dark-color); /* Vert foncé au survol */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-dark-color); /* Fond sombre pour l'en-tête */
+            color: var(--text-light-color); /* Texte clair dans l'en-tête */
+            padding: 10px 20px;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: center; /* Centrer les éléments du menu */
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-light-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: var(--primary-color); /* Changer la couleur au survol */
+        }
+
+        /* Responsivité */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                
+                <li><a href="cv.html">Télécharger un CV</a></li>
+                <li><a href="emplois.html">Offres d'Emploi</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h1>Contact <span>Nous!</span></h1>
+        <form action="#" method="post">
+            <div class="form-group">
+                <input type="text" name="cin" placeholder="CIN" required>
+                <input type="text" name="Nom et prénom" placeholder="Nom et prénom" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Votre tél" required>
+            </div>
+            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+            <button type="submit">Contactez-nous</button>
+        </form>
+    </div>
+
+</body>
+</html>
